@@ -1,5 +1,6 @@
 import React from 'react';
 import { LayoutTemplate, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Templates: React.FC = () => {
     return (
@@ -14,20 +15,28 @@ export const Templates: React.FC = () => {
 
                 <div className="grid gap-6 max-w-4xl mx-auto">
                     {[
-                        "Cybersecurity Risk Management Plan",
-                        "Threat Modeling Template (STRIDE)",
-                        "Software Bill of Materials (SBOM) Generation Guide",
-                        "Post-Market Surveillance Plan",
-                        "Vulnerability Disclosure Policy"
+                        { title: "Worksheet A: Cyber Risk Assessment", link: "/templates/worksheet-a", active: true },
+                        { title: "Worksheet B: Cyber Incident Response", link: "/templates/worksheet-b", active: true },
+                        { title: "Cybersecurity Risk Management Plan", link: "#", active: false },
+                        { title: "Threat Modeling Template (STRIDE)", link: "#", active: false },
+                        { title: "Software Bill of Materials (SBOM) Generation Guide", link: "#", active: false },
+                        { title: "Post-Market Surveillance Plan", link: "#", active: false },
+                        { title: "Vulnerability Disclosure Policy", link: "#", active: false }
                     ].map((template, index) => (
                         <div key={index} className="flex items-center justify-between bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-blue-300 transition-colors">
                             <div className="flex items-center gap-4">
                                 <LayoutTemplate className="text-pink-500" />
-                                <span className="font-medium text-slate-900 text-lg">{template}</span>
+                                <span className="font-medium text-slate-900 text-lg">{template.title}</span>
                             </div>
-                            <button className="flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition-colors">
-                                <Download size={20} /> Download
-                            </button>
+                            {template.active ? (
+                                <Link to={template.link} className="flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition-colors">
+                                    <Download size={20} /> Open Template
+                                </Link>
+                            ) : (
+                                <span className="flex items-center gap-2 text-slate-400 font-medium cursor-not-allowed">
+                                    <Download size={20} /> Work in Progress
+                                </span>
+                            )}
                         </div>
                     ))}
                 </div>

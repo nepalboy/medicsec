@@ -71,8 +71,8 @@ export const FeatureGrid: React.FC = () => {
                             to={feature.link}
                             className="block bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 group"
                         >
-                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${feature.bg}`}>
-                                <feature.icon className={`h-6 w-6 ${feature.color}`} />
+                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${feature.bg}`}>
+                                <feature.icon className={`h-8 w-8 ${feature.color}`} />
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
                                 {feature.title}

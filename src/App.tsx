@@ -1,4 +1,3 @@
-import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Hero } from './components/Hero';
@@ -14,6 +13,9 @@ import { VerificationValidation } from './components/pages/VerificationValidatio
 import { Templates } from './components/pages/Templates';
 import { Articles } from './components/pages/Articles';
 import { ArticleDetail } from './components/pages/ArticleDetail';
+import { PrintArticleDetail } from './components/pages/PrintArticleDetail';
+import { WorksheetA } from './components/pages/templates/WorksheetA';
+import { WorksheetB } from './components/pages/templates/WorksheetB';
 
 function LandingPage() {
   return (
@@ -37,7 +39,10 @@ function App() {
           <Route path="/dc" element={<DesignControls />} />
           <Route path="/vv" element={<VerificationValidation />} />
           <Route path="/templates" element={<Templates />} />
+          <Route path="/templates/worksheet-a" element={<WorksheetA />} />
+          <Route path="/templates/worksheet-b" element={<WorksheetB />} />
           <Route path="/articles" element={<Articles />} />
+          <Route path="/articles/print/:id" element={<PrintArticleDetail />} />
           <Route path="/articles/:id" element={<ArticleDetail />} />
         </Routes>
       </Layout>

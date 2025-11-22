@@ -3,13 +3,13 @@ import { Calendar, ArrowRight, Image as ImageIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const printArticles = [
-    { src: '/images/print-articles/cybermedicaldevice-1.jpg', alt: 'Cyber Medical Device' },
-    { src: '/images/print-articles/saluki.jpg', alt: 'Saluki' },
-    { src: '/images/print-articles/academic-tourism.jpg', alt: 'Academic Tourism' },
-    { src: '/images/print-articles/remote.jpg', alt: 'Remote Healthcare' },
-    { src: '/images/print-articles/cybersecurity.jpg', alt: 'Cybersecurity' },
-    { src: '/images/print-articles/kids.jpg', alt: 'Pediatric Device Security' },
-    { src: '/images/print-articles/AImedicaldevice-1.jpg', alt: 'AI Medical Device' },
+    { src: 'images/print-articles/cybermedicaldevice-1.jpg', alt: 'Cyber Medical Device' },
+    { src: 'images/print-articles/saluki.jpg', alt: 'Saluki' },
+    { src: 'images/print-articles/academic-tourism.jpg', alt: 'Academic Tourism' },
+    { src: 'images/print-articles/remote.jpg', alt: 'Remote Healthcare' },
+    { src: 'images/print-articles/cybersecurity.jpg', alt: 'Cybersecurity' },
+    { src: 'images/print-articles/kids.jpg', alt: 'Pediatric Device Security' },
+    { src: 'images/print-articles/AImedicaldevice-1.jpg', alt: 'AI Medical Device' },
 ];
 
 const articles = [
@@ -77,19 +77,24 @@ export const Articles: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {printArticles.map((img, index) => (
-                            <div key={index} className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-slate-100 shadow-sm hover:shadow-lg transition-all cursor-pointer">
-                                <img
-                                    src={img.src}
-                                    alt={img.alt}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                    loading="lazy"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                                    <p className="text-white font-medium text-sm">{img.alt}</p>
-                                </div>
-                            </div>
-                        ))}
+                        {printArticles.map((img, index) => {
+                            // Extract ID from filename (e.g., 'images/print-articles/saluki.jpg' -> 'saluki')
+                            const id = img.src.split('/').pop()?.replace('.jpg', '') || '';
+
+                            return (
+                                <Link key={index} to={`/articles/print/${id}`} className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-slate-100 shadow-sm hover:shadow-lg transition-all cursor-pointer block">
+                                    <img
+                                        src={img.src}
+                                        alt={img.alt}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                        <p className="text-white font-medium text-sm">{img.alt}</p>
+                                    </div>
+                                </Link>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
