@@ -19,11 +19,11 @@ import { WorksheetB } from './components/pages/templates/WorksheetB';
 
 function LandingPage() {
   return (
-    <>
+    <div className="flex flex-col w-full">
       <Hero />
       <FeatureGrid />
       <LatestArticles />
-    </>
+    </div>
   );
 }
 
@@ -32,7 +32,7 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route index element={<LandingPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/mas" element={<MedicalAISecurity />} />
           <Route path="/sfs" element={<Standards />} />

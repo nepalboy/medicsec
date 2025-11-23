@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 export const Hero: React.FC = () => {
     return (
-        <div className="relative min-h-[80vh] flex items-center overflow-hidden">
+        <div className="relative flex items-center overflow-hidden">
+            {/* Background Image with Overlay */}
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img

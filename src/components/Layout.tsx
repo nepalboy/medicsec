@@ -90,7 +90,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                         </div>
                     </div>
                     <div className="border-t border-blue-900 pt-8 text-center text-sm text-blue-400">
-                        <p>&copy; {new Date().getFullYear()} MedicSec. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} MedicSec. All rights reserved. | medisec Build 2: Version /Aconcagua-1.1/</p>
                     </div>
                 </div>
             </footer>
