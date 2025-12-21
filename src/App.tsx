@@ -10,6 +10,7 @@ import { MedicalAISecurity } from './components/pages/MedicalAISecurity';
 import { Standards } from './components/pages/Standards';
 import { DesignControls } from './components/pages/DesignControls';
 import { VerificationValidation } from './components/pages/VerificationValidation';
+import { TrainingAwareness } from './components/pages/TrainingAwareness';
 import { Templates } from './components/pages/Templates';
 import { Articles } from './components/pages/Articles';
 import { ArticleDetail } from './components/pages/ArticleDetail';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/sfs" element={<Standards />} />
           <Route path="/dc" element={<DesignControls />} />
           <Route path="/vv" element={<VerificationValidation />} />
+          <Route path="/training-awareness" element={<TrainingAwareness />} />
           <Route path="/templates" element={<Templates />} />
           <Route path="/templates/worksheet-a" element={<WorksheetA />} />
           <Route path="/templates/worksheet-b" element={<WorksheetB />} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, FileText, PenTool, CheckCircle, LayoutTemplate, Newspaper } from 'lucide-react';
+import { Brain, FileText, PenTool, CheckCircle, LayoutTemplate, Newspaper, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const features = [
@@ -34,6 +34,14 @@ const features = [
         color: 'text-orange-500',
         bg: 'bg-orange-500/10',
         link: '/vv'
+    },
+    {
+        icon: GraduationCap,
+        title: 'Training and Awareness',
+        description: 'Building a culture of security through education programs.',
+        color: 'text-teal-500',
+        bg: 'bg-teal-500/10',
+        link: '/training-awareness'
     },
     {
         icon: LayoutTemplate,
