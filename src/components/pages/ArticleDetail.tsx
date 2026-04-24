@@ -79,15 +79,18 @@ const articleData: Record<string, ArticleContent> = {
                 </p>
                 <ol className="list-decimal pl-6 space-y-4 my-6">
                     <li>
-                        <strong>Cybersecurity analysis:</strong> Characterize the threat and adverse impact. 
-                        <em>Output: "unauthorized modification of infusion rate parameter is credible."</em>
+                        <strong>Cybersecurity analysis:</strong> Characterize the threat and adverse impact using non-probabilistic reasoning. 
+                        <em>Output: "unauthorized modification of infusion rate parameter via unencrypted Bluetooth command channel is credible."</em>
                     </li>
                     <li>
-                        <strong>Causal safety linkage:</strong> Expert judgment determines if the cyber condition precipitates a hazardous situation. 
-                        <em>Output: "if realized, incorrect dose delivery is a foreseeable hazardous situation."</em>
+                        <strong>Causal safety linkage:</strong> Expert judgment determines if the cybersecurity condition precipitates a hazardous situation. 
+                        <p className="mt-2 text-sm text-slate-600">
+                            Linking <strong>Threat IDs</strong> with <strong>Hazard IDs</strong> provides a structured causal bridge between the two methodologies, as identified in AAMI TIR57. This mapping explicitly shows the relationship between security and safety risks, though practitioners should avoid model overfitting since Threat IDs are often specific subsets of broader Hazard IDs.
+                        </p>
+                        <em>Output: "if the above condition is realized, incorrect dose delivery resulting in over-infusion is a foreseeable hazardous situation."</em>
                     </li>
                     <li>
-                        <strong>Safety risk estimation:</strong> Estimate P(harm | hazardous situation) assuming the hazardous situation exists.
+                        <strong>Safety risk estimation:</strong> Estimate P(harm | hazardous situation) and severity using standard ISO 14971 methods, conditioning on the hazardous situation existing (i.e., assuming the cyber condition is realized).
                     </li>
                 </ol>
                 <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
