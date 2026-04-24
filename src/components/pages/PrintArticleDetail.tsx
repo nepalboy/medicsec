@@ -41,6 +41,12 @@ export const PrintArticleDetail: React.FC = () => {
                         className="w-full h-auto"
                     />
                 </div>
+
+                <footer className="mt-16 pt-8 border-t border-slate-200">
+                    <p className="text-sm text-slate-500 italic">
+                        All the views expressed in the article are personal and do not reflect the views of my previous or current employer.
+                    </p>
+                </footer>
             </div>
         </div>
     );
