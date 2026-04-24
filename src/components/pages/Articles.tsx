@@ -14,6 +14,13 @@ const printArticles = [
 
 const articles = [
     {
+        id: 'cyber-safety-dilemma',
+        title: 'Transposing Cybersecurity-to-Safety Risks in Medical Devices: The Dilemma of Mathematical Conversion vs. Judgmental Linkage',
+        date: '24 Apr 2026',
+        excerpt: 'Exploring why cybersecurity and safety risk management must remain distinct yet coordinated processes, avoiding the pitfalls of mathematical fusion.',
+        featured: true
+    },
+    {
         id: 'evolving-risk',
         title: 'Evolving Risk Paradigms: Why Medical Device Security Demands a New Approach',
         date: '02 Nov 2025',
