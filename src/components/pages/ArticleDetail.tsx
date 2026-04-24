@@ -89,15 +89,7 @@ const articleData: Record<string, ArticleContent> = {
                         </p>
                         <em>Output: "if the above condition is realized, incorrect dose delivery resulting in over-infusion is a foreseeable hazardous situation."</em>
                     </li>
-                    <li>
-                        <strong>Safety risk estimation:</strong> Estimate P(harm | hazardous situation) and severity using standard ISO 14971 methods, conditioning on the hazardous situation existing (i.e., assuming the cyber condition is realized).
-                    </li>
                 </ol>
-                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
-                    <p className="font-mono text-center text-blue-800">
-                        R_safety = P(harm | HS) × S, where HS is established by cybersecurity causal linkage
-                    </p>
-                </div>
 
                 <h3 className="text-2xl font-bold mt-8 mb-4">5. Conclusion</h3>
                 <p>
