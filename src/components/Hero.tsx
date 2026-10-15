@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
                     </h1>
 
                     <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                        Welcome to my hub for medical device cybersecurity! If you're seeking insights into best practices, FDA guidance, and the intricate details of cybersecurity deliverables for medical device development, you've come to the right place.
+                        Welcome to my hub to innovate and build — the path to safe, secure, and compliant medical devices.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4">
