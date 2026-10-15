@@ -25,7 +25,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                         <div className="hidden md:flex items-center space-x-8">
                             <Link to="/" className="text-blue-100 hover:text-white font-medium transition-colors">Home</Link>
                             <Link to="/articles" className="text-blue-100 hover:text-white font-medium transition-colors">Articles</Link>
-                            <Link to="/training-awareness" className="text-blue-100 hover:text-white font-medium transition-colors">Training and Awareness</Link>
+                            <Link to="/training-awareness" className="text-blue-100 hover:text-white font-medium transition-colors">Training & Print Articles</Link>
                             <Link to="/about" className="text-blue-100 hover:text-white font-medium transition-colors">About</Link>
                         </div>
 
@@ -47,7 +47,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                         <div className="px-4 pt-2 pb-4 space-y-1">
                             <Link to="/" className="block px-3 py-2 text-blue-100 hover:bg-blue-800 hover:text-white rounded-md font-medium">Home</Link>
                             <Link to="/articles" className="block px-3 py-2 text-blue-100 hover:bg-blue-800 hover:text-white rounded-md font-medium">Articles</Link>
-                            <Link to="/training-awareness" className="block px-3 py-2 text-blue-100 hover:bg-blue-800 hover:text-white rounded-md font-medium">Training and Awareness</Link>
+                            <Link to="/training-awareness" className="block px-3 py-2 text-blue-100 hover:bg-blue-800 hover:text-white rounded-md font-medium">Training & Print Articles</Link>
                             <Link to="/about" className="block px-3 py-2 text-blue-100 hover:bg-blue-800 hover:text-white rounded-md font-medium">About</Link>
                         </div>
                     </div>
