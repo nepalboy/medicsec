@@ -7,9 +7,9 @@ export const TrainingAwareness: React.FC = () => {
         <div className="bg-white py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
-                    <h1 className="text-4xl font-bold text-slate-900 mb-4">Training and Awareness</h1>
+                    <h1 className="text-4xl font-bold text-slate-900 mb-4">Training, Presentations & Print Articles</h1>
                     <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                        Building a culture of security through education and awareness programs.
+                        Building a culture of security through education, shared knowledge, and published research.
                     </p>
                 </div>
 
@@ -126,6 +126,41 @@ export const TrainingAwareness: React.FC = () => {
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+
+                {/* Print Articles Section */}
+                <div className="mb-10">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-6">Print Articles</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            { id: 'cybermedicaldevice-1', title: 'Cyber Medical Device', src: '/images/print-articles/cybermedicaldevice-1.jpg' },
+                            { id: 'AImedicaldevice-1', title: 'AI Medical Device', src: '/images/print-articles/AImedicaldevice-1.jpg' },
+                            { id: 'cybersecurity', title: 'Cybersecurity', src: '/images/print-articles/cybersecurity.jpg' },
+                            { id: 'remote', title: 'Remote Healthcare', src: '/images/print-articles/remote.jpg' },
+                            { id: 'kids', title: 'Pediatric Device Security', src: '/images/print-articles/kids.jpg' },
+                            { id: 'academic-tourism', title: 'Academic Tourism', src: '/images/print-articles/academic-tourism.jpg' },
+                            { id: 'saluki', title: 'Saluki', src: '/images/print-articles/saluki.jpg' },
+                        ].map((article) => (
+                            <a
+                                key={article.id}
+                                href={`#/articles/print/${article.id}`}
+                                className="block bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+                            >
+                                <div className="aspect-[16/9] overflow-hidden bg-slate-100">
+                                    <img
+                                        src={article.src}
+                                        alt={article.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    />
+                                </div>
+                                <div className="p-5">
+                                    <h3 className="font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
+                                        {article.title}
+                                    </h3>
+                                </div>
+                            </a>
+                        ))}
                     </div>
                 </div>
 

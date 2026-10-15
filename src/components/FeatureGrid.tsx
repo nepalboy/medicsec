@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, FileText, PenTool, CheckCircle, LayoutTemplate, Newspaper, GraduationCap, HeartPulse } from 'lucide-react';
+import { Brain, FileText, PenTool, CheckCircle, LayoutTemplate, GraduationCap, HeartPulse, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface Feature {
@@ -67,15 +67,15 @@ const features: Feature[] = [
     },
     {
         icon: GraduationCap,
-        title: 'Training and Awareness',
-        description: 'Building a culture of security through education programs.',
+        title: 'Training, Presentations & Print Articles',
+        description: 'Security education, conference presentations, and published research.',
         cardBg: 'bg-teal-100',
         chipBg: 'bg-white',
         iconColor: 'text-teal-600',
         pillBg: 'bg-teal-600',
         link: '/training-awareness',
-        articleCount: 1,
-        articleLabel: '1 article'
+        articleCount: 10,
+        articleLabel: '10 resources'
     },
     {
         icon: LayoutTemplate,
@@ -90,16 +90,16 @@ const features: Feature[] = [
         articleLabel: '2 templates'
     },
     {
-        icon: Newspaper,
-        title: 'Print Articles',
-        description: 'Published research and industry articles.',
-        cardBg: 'bg-cyan-100',
+        icon: Database,
+        title: 'FDA Data',
+        description: 'Business intelligence, innovations, warnings, and field actions from FDA device data.',
+        cardBg: 'bg-amber-100',
         chipBg: 'bg-white',
-        iconColor: 'text-cyan-600',
-        pillBg: 'bg-cyan-600',
-        link: '/articles',
-        articleCount: 7,
-        articleLabel: '7 articles'
+        iconColor: 'text-amber-600',
+        pillBg: 'bg-amber-600',
+        link: '/fda-data',
+        articleCount: 4,
+        articleLabel: '4 topics'
     },
     {
         icon: HeartPulse,

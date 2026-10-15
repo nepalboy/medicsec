@@ -8,6 +8,7 @@ import { LatestArticles } from './components/LatestArticles';
 import { About } from './components/pages/About';
 import { MedicalAISecurity } from './components/pages/MedicalAISecurity';
 import { Safety } from './components/pages/Safety';
+import { FDAData } from './components/pages/FDAData';
 import { Standards } from './components/pages/Standards';
 import { DesignControls } from './components/pages/DesignControls';
 import { VerificationValidation } from './components/pages/VerificationValidation';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/mas" element={<MedicalAISecurity />} />
           <Route path="/safety" element={<Safety />} />
+          <Route path="/fda-data" element={<FDAData />} />
           <Route path="/sfs" element={<Standards />} />
           <Route path="/dc" element={<DesignControls />} />
           <Route path="/vv" element={<VerificationValidation />} />
