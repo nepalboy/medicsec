@@ -67,8 +67,8 @@ export const About: React.FC = () => {
                                 <a href="https://www.linkedin.com/in/ravidhungel" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#0077b5] hover:bg-[#006396] px-4 py-2 rounded-full transition-colors text-sm shadow-lg">
                                     <Linkedin size={16} /> LinkedIn
                                 </a>
-                                <a href="http://www.nepalilad.blogspot.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-full transition-colors text-sm shadow-lg">
-                                    <Globe size={16} /> Blog
+                                <a href="https://www.nepaliboy.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-full transition-colors text-sm shadow-lg">
+                                    <Globe size={16} /> nepaliboy.com
                                 </a>
                             </div>
                         </div>
