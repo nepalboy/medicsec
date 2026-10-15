@@ -1,5 +1,6 @@
 import React from 'react';
 import { FileText, Globe, BookOpen } from 'lucide-react';
+import { RelatedArticles } from '../RelatedArticles';
 
 export const Standards: React.FC = () => {
     return (
@@ -45,6 +46,12 @@ export const Standards: React.FC = () => {
                         <li><strong>NIST Cybersecurity Framework</strong>: Identify, Protect, Detect, Respond, Recover.</li>
                     </ul>
                 </div>
+
+                <RelatedArticles articles={[
+                    { title: 'AI Safety Challenges for Medical Devices', date: '15 Oct 2026', link: '/articles/ai-safety-challenges' },
+                    { title: 'Transposing Cybersecurity-to-Safety Risks in Medical Devices', date: '24 Apr 2026', link: '/articles/cyber-safety-dilemma' },
+                    { title: 'Evolving Risk Paradigms', date: '02 Nov 2025', link: '/articles/evolving-risk' },
+                ]} />
             </div>
         </div>
     );

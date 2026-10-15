@@ -1,5 +1,6 @@
 import React from 'react';
 import { Brain, Shield, Lock, AlertTriangle } from 'lucide-react';
+import { RelatedArticles } from '../RelatedArticles';
 
 export const MedicalAISecurity: React.FC = () => {
     return (
@@ -49,6 +50,12 @@ export const MedicalAISecurity: React.FC = () => {
                         Regulators like the FDA and EU bodies are increasingly focusing on AI/ML-based Software as a Medical Device (SaMD). The FDA's "Action Plan for AI/ML-Based Software as a Medical Device" highlights the need for a total product lifecycle approach to regulation, emphasizing post-market performance monitoring and robust cybersecurity controls.
                     </p>
                 </div>
+
+                <RelatedArticles articles={[
+                    { title: 'AI Safety Challenges for Medical Devices', date: '15 Oct 2026', link: '/articles/ai-safety-challenges' },
+                    { title: 'Transposing Cybersecurity-to-Safety Risks in Medical Devices', date: '24 Apr 2026', link: '/articles/cyber-safety-dilemma' },
+                    { title: 'AI Medical Device (Print)', date: 'Print collection', link: '/articles/print/AImedicaldevice-1' },
+                ]} />
             </div>
         </div>
     );

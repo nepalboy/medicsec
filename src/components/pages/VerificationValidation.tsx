@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle, Search, Bug } from 'lucide-react';
+import { RelatedArticles } from '../RelatedArticles';
 
 export const VerificationValidation: React.FC = () => {
     return (
@@ -35,6 +36,12 @@ export const VerificationValidation: React.FC = () => {
                         </p>
                     </div>
                 </div>
+
+                <RelatedArticles articles={[
+                    { title: 'AI Safety Challenges for Medical Devices', date: '15 Oct 2026', link: '/articles/ai-safety-challenges' },
+                    { title: 'How to Code Sign, Step by Step', date: '16 Sep 2026', link: '/code-signing/', external: true },
+                    { title: 'Understanding Post-Market Surveillance', date: '15 Jan 2025', link: '/articles/post-market-surveillance' },
+                ]} />
             </div>
         </div>
     );

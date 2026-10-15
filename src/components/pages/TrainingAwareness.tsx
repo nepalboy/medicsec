@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, Users, BookOpen, Award, FileDown } from 'lucide-react';
+import { RelatedArticles } from '../RelatedArticles';
 
 export const TrainingAwareness: React.FC = () => {
     return (
@@ -127,6 +128,10 @@ export const TrainingAwareness: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
+                <RelatedArticles articles={[
+                    { title: 'How to Code Sign, Step by Step', date: '16 Sep 2026', link: '/code-signing/', external: true },
+                ]} />
             </div>
         </div>
     );
