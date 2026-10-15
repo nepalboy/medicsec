@@ -6,10 +6,14 @@ interface Feature {
     icon: React.ComponentType<{ className?: string }>;
     title: string;
     description: string;
-    color: string;
-    bg: string;
+    cardBg: string;
+    chipBg: string;
+    iconColor: string;
+    pillBg: string;
     link: string;
     external?: boolean;
+    articleCount: number;
+    articleLabel: string;
 }
 
 const features: Feature[] = [
@@ -17,66 +21,98 @@ const features: Feature[] = [
         icon: Brain,
         title: 'Medical AI Security',
         description: 'Security considerations for AI/ML enabled medical devices.',
-        color: 'text-purple-500',
-        bg: 'bg-purple-500/10',
-        link: '/mas'
+        cardBg: 'bg-purple-100',
+        chipBg: 'bg-white',
+        iconColor: 'text-purple-600',
+        pillBg: 'bg-purple-600',
+        link: '/mas',
+        articleCount: 3,
+        articleLabel: '3 articles'
     },
     {
         icon: FileText,
         title: 'Standards & Frameworks',
         description: 'Navigating FDA, MDR, and global cybersecurity standards.',
-        color: 'text-blue-500',
-        bg: 'bg-blue-500/10',
-        link: '/sfs'
+        cardBg: 'bg-blue-100',
+        chipBg: 'bg-white',
+        iconColor: 'text-blue-600',
+        pillBg: 'bg-blue-600',
+        link: '/sfs',
+        articleCount: 3,
+        articleLabel: '3 articles'
     },
     {
         icon: PenTool,
         title: 'Design Controls',
         description: 'Integrating security into the design control process.',
-        color: 'text-green-500',
-        bg: 'bg-green-500/10',
-        link: '/dc'
+        cardBg: 'bg-green-100',
+        chipBg: 'bg-white',
+        iconColor: 'text-green-600',
+        pillBg: 'bg-green-600',
+        link: '/dc',
+        articleCount: 2,
+        articleLabel: '2 articles'
     },
     {
         icon: CheckCircle,
         title: 'Verification & Validation',
         description: 'Testing strategies for security requirements.',
-        color: 'text-orange-500',
-        bg: 'bg-orange-500/10',
-        link: '/vv'
+        cardBg: 'bg-orange-100',
+        chipBg: 'bg-white',
+        iconColor: 'text-orange-600',
+        pillBg: 'bg-orange-600',
+        link: '/vv',
+        articleCount: 3,
+        articleLabel: '3 articles'
     },
     {
         icon: GraduationCap,
         title: 'Training and Awareness',
         description: 'Building a culture of security through education programs.',
-        color: 'text-teal-500',
-        bg: 'bg-teal-500/10',
-        link: '/training-awareness'
+        cardBg: 'bg-teal-100',
+        chipBg: 'bg-white',
+        iconColor: 'text-teal-600',
+        pillBg: 'bg-teal-600',
+        link: '/training-awareness',
+        articleCount: 1,
+        articleLabel: '1 article'
     },
     {
         icon: LayoutTemplate,
         title: 'Templates',
         description: 'Ready-to-use templates for security documentation.',
-        color: 'text-pink-500',
-        bg: 'bg-pink-500/10',
-        link: '/templates'
+        cardBg: 'bg-pink-100',
+        chipBg: 'bg-white',
+        iconColor: 'text-pink-600',
+        pillBg: 'bg-pink-600',
+        link: '/templates',
+        articleCount: 2,
+        articleLabel: '2 templates'
     },
     {
         icon: Newspaper,
         title: 'Print Articles',
         description: 'Published research and industry articles.',
-        color: 'text-cyan-500',
-        bg: 'bg-cyan-500/10',
-        link: '/articles'
+        cardBg: 'bg-cyan-100',
+        chipBg: 'bg-white',
+        iconColor: 'text-cyan-600',
+        pillBg: 'bg-cyan-600',
+        link: '/articles',
+        articleCount: 7,
+        articleLabel: '7 articles'
     },
     {
         icon: KeyRound,
         title: 'Code Signing',
         description: 'How to digitally sign files step by step: hashing, RSA key pairs, signing, and signature verification.',
-        color: 'text-indigo-500',
-        bg: 'bg-indigo-500/10',
+        cardBg: 'bg-indigo-100',
+        chipBg: 'bg-white',
+        iconColor: 'text-indigo-600',
+        pillBg: 'bg-indigo-600',
         link: '/code-signing/',
-        external: true
+        external: true,
+        articleCount: 1,
+        articleLabel: '1 article'
     }
 ];
 
@@ -91,18 +127,21 @@ export const FeatureGrid: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {features.map((feature, index) => {
-                        const cardClass = "block bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 group";
+                        const cardClass = `relative block ${feature.cardBg} p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow group`;
                         const cardInner = (
                             <>
-                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${feature.bg}`}>
-                                    <feature.icon className={`h-8 w-8 ${feature.color}`} />
+                                <span className={`absolute top-4 right-4 ${feature.pillBg} text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm`}>
+                                    {feature.articleLabel}
+                                </span>
+                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${feature.chipBg} shadow-sm`}>
+                                    <feature.icon className={`h-8 w-8 ${feature.iconColor}`} />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors pr-16">
                                     {feature.title}
                                 </h3>
-                                <p className="text-slate-600 leading-relaxed">
+                                <p className="text-slate-700 leading-relaxed">
                                     {feature.description}
                                 </p>
                             </>
