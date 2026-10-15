@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/20"></div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-14 w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-6 pb-14 w-full">
                 <div className="max-w-2xl">
                     <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5 text-slate-900">
                         Building Secure and <br />
