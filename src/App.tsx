@@ -7,6 +7,7 @@ import { LatestArticles } from './components/LatestArticles';
 // Pages
 import { About } from './components/pages/About';
 import { MedicalAISecurity } from './components/pages/MedicalAISecurity';
+import { Safety } from './components/pages/Safety';
 import { Standards } from './components/pages/Standards';
 import { DesignControls } from './components/pages/DesignControls';
 import { VerificationValidation } from './components/pages/VerificationValidation';
@@ -36,6 +37,7 @@ function App() {
           <Route index element={<LandingPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/mas" element={<MedicalAISecurity />} />
+          <Route path="/safety" element={<Safety />} />
           <Route path="/sfs" element={<Standards />} />
           <Route path="/dc" element={<DesignControls />} />
           <Route path="/vv" element={<VerificationValidation />} />

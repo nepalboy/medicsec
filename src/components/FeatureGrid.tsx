@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, FileText, PenTool, CheckCircle, LayoutTemplate, Newspaper, GraduationCap, KeyRound } from 'lucide-react';
+import { Brain, FileText, PenTool, CheckCircle, LayoutTemplate, Newspaper, GraduationCap, HeartPulse } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface Feature {
@@ -102,17 +102,16 @@ const features: Feature[] = [
         articleLabel: '7 articles'
     },
     {
-        icon: KeyRound,
-        title: 'Code Signing',
-        description: 'How to digitally sign files step by step: hashing, RSA key pairs, signing, and signature verification.',
-        cardBg: 'bg-indigo-100',
+        icon: HeartPulse,
+        title: 'Safety',
+        description: 'Patient safety first: hazard analysis, safety–security linkage, and AI safety assurance.',
+        cardBg: 'bg-red-100',
         chipBg: 'bg-white',
-        iconColor: 'text-indigo-600',
-        pillBg: 'bg-indigo-600',
-        link: '/code-signing/',
-        external: true,
-        articleCount: 1,
-        articleLabel: '1 article'
+        iconColor: 'text-red-600',
+        pillBg: 'bg-red-600',
+        link: '/safety',
+        articleCount: 2,
+        articleLabel: '2 articles'
     }
 ];
 
