@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, ArrowRight, Stethoscope } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Hero: React.FC = () => {
@@ -17,16 +17,6 @@ export const Hero: React.FC = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-14 w-full">
                 <div className="max-w-2xl">
-                    <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-1.5 mb-5">
-                        <Shield size={16} className="text-blue-600" />
-                        <span className="text-sm font-medium text-blue-800">Medical Device Cybersecurity</span>
-                    </div>
-
-                    <div className="flex items-center gap-3 mb-5">
-                        <Stethoscope size={40} className="text-pink-600" />
-                        <span className="text-3xl font-bold text-slate-900 tracking-tight">medicsec</span>
-                    </div>
-
                     <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5 text-slate-900">
                         Building Secure and <br />
                         <span className="text-blue-600">Safe Medical Devices</span>
