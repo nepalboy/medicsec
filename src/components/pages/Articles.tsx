@@ -12,7 +12,33 @@ const printArticles = [
     { src: 'images/print-articles/AImedicaldevice-1.jpg', alt: 'AI Medical Device' },
 ];
 
-const articles = [
+interface ArticleEntry {
+    id: string;
+    title: string;
+    date: string;
+    excerpt: string;
+    featured: boolean;
+    technical?: boolean;
+    externalUrl?: string;
+}
+
+const articles: ArticleEntry[] = [
+    {
+        id: 'ai-safety-challenges',
+        title: 'AI Safety Challenges for Medical Devices: Quality Management, Safety Assurance, and Technical Limitations',
+        date: '15 Oct 2026',
+        excerpt: 'A deep dive into where AI strains ISO 13485 design controls and ISO 14971 hazard analysis, the technical limits bounding assurance — plus pointers to FDA AI guidance (PCCP, TPLC, 21 CFR 892.2055).',
+        featured: false
+    },
+    {
+        id: 'code-signing',
+        title: 'How to Code Sign, Step by Step',
+        date: '16 Sep 2026',
+        excerpt: 'A practical, hands-on walkthrough of digital signing on Linux — from hashing a file, to generating an RSA-4096 signing key pair, to verifying the signature on the receiver side.',
+        featured: false,
+        technical: true,
+        externalUrl: '/code-signing/'
+    },
     {
         id: 'cyber-safety-dilemma',
         title: 'Transposing Cybersecurity-to-Safety Risks in Medical Devices: The Dilemma of Mathematical Conversion vs. Judgmental Linkage',
@@ -49,29 +75,44 @@ export const Articles: React.FC = () => {
 
                 {/* Blog Articles */}
                 <div className="grid gap-8 mb-20">
-                    {articles.map((article) => (
-                        <Link
-                            key={article.id}
-                            to={`/articles/${article.id}`}
-                            className="block bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all group"
-                        >
-                            <div className="flex items-center gap-4 text-sm text-slate-500 mb-3">
-                                <span className="flex items-center gap-1"><Calendar size={14} /> {article.date}</span>
-                                {article.featured && (
-                                    <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full text-xs font-bold uppercase">Featured</span>
-                                )}
-                            </div>
-                            <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                                {article.title}
-                            </h2>
-                            <p className="text-slate-600 leading-relaxed mb-4">
-                                {article.excerpt}
-                            </p>
-                            <span className="inline-flex items-center gap-2 text-blue-600 font-medium group-hover:gap-3 transition-all">
-                                Read Article <ArrowRight size={16} />
-                            </span>
-                        </Link>
-                    ))}
+                    {articles.map((article) => {
+                        const cardClass = "block bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all group";
+                        const cardInner = (
+                            <>
+                                <div className="flex items-center gap-4 text-sm text-slate-500 mb-3">
+                                    <span className="flex items-center gap-1"><Calendar size={14} /> {article.date}</span>
+                                    {article.featured && (
+                                        <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full text-xs font-bold uppercase">Featured</span>
+                                    )}
+                                    {article.technical && (
+                                        <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full text-xs font-bold uppercase">Technical</span>
+                                    )}
+                                </div>
+                                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                    {article.title}
+                                </h2>
+                                <p className="text-slate-600 leading-relaxed mb-4">
+                                    {article.excerpt}
+                                </p>
+                                <span className="inline-flex items-center gap-2 text-blue-600 font-medium group-hover:gap-3 transition-all">
+                                    Read Article <ArrowRight size={16} />
+                                </span>
+                            </>
+                        );
+                        return article.externalUrl ? (
+                            <a key={article.id} href={article.externalUrl} className={cardClass}>
+                                {cardInner}
+                            </a>
+                        ) : (
+                            <Link
+                                key={article.id}
+                                to={`/articles/${article.id}`}
+                                className={cardClass}
+                            >
+                                {cardInner}
+                            </Link>
+                        );
+                    })}
                 </div>
 
                 {/* Print Articles Section */}

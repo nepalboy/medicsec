@@ -11,6 +11,509 @@ interface ArticleContent {
 }
 
 const articleData: Record<string, ArticleContent> = {
+    'ai-safety-challenges': {
+        title: 'AI Safety Challenges for Medical Devices: Quality Management, Safety Assurance, and the Technical Limitations of Machine Learning',
+        date: '15 Oct 2026',
+        author: 'Ravi Dhungel',
+        content: (
+            <>
+                <p className="lead text-xl text-slate-600 mb-8">
+                    With over 1,000 FDA-authorized AI/ML-enabled devices, a finalized Predetermined Change Control
+                    Plan (PCCP) framework, and a dedicated device classification for machine-learning imaging software
+                    (21 CFR 892.2055), artificial intelligence is now a regulated modality in medical devices. Yet the
+                    assurance infrastructure of the industry — design controls per the QMSR and ISO 13485, ISO 14971
+                    risk management, IEC 62304 software lifecycle processes — was architected for deterministic
+                    systems. This article analyzes three loci of strain: quality management, safety assurance, and the
+                    intrinsic technical limitations of machine learning.
+                </p>
+
+                <p>
+                    This article is a companion to <em>"AI To Develop Safe Medical Devices,"</em> published in <em>The
+                    Rising Nepal</em> (<a href="https://risingnepaldaily.com/news/53599" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">risingnepaldaily.com/news/53599</a>),
+                    which examined the opportunity: generative AI accelerating design prototyping, scaled verification
+                    and validation (V&amp;V), automated regulatory compliance, and AI-driven post-market surveillance.
+                    Each opportunity entails a corresponding assurance obligation. What follows defines those
+                    obligations.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">1. Quality Management Under Strain</h3>
+                <p>
+                    The QMSR (21 CFR Part 820, effective February 2026) and ISO 13485 §7.3 presuppose a deterministic
+                    design cascade: specified inputs → engineered outputs → verification → validation → transfer. ML
+                    violates the central presupposition: the design output (trained weights) is not engineered but
+                    induced from data via a stochastic optimization process. Device behavior is thus an emergent
+                    property of the dataset, loss function, architecture, and training procedure — none of which are
+                    captured in a conventional requirements specification.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">1.1 Design controls and the learned-behavior problem</h4>
+                <p>
+                    For ML-enabled devices, the behavior-determining design inputs are the dataset specification,
+                    annotation protocol, architecture selection, training procedure, and performance acceptance
+                    criteria. The design history file (DHF) must therefore implement an extended traceability chain
+                    beyond the classical requirement → design element → test matrix:
+                </p>
+                <p className="bg-slate-50 border-l-4 border-blue-500 pl-4 py-3 my-4 italic text-slate-700">
+                    Clinical need → data specification → dataset version → annotation protocol →
+                    training run (code + hyperparameters + seed) → model version →
+                    verification evidence → validation evidence → performance claim
+                </p>
+                <p>
+                    Each link requires documentation, version control, and independent review. Design reviews must
+                    integrate data science, clinical, and risk management functions; a review approving a model
+                    without examining its training data evaluates nothing.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">1.2 Data as a design input</h4>
+                <p>
+                    Data determining behavior is data functioning as a design input, subject to design-input controls:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                    <li>
+                        <strong>Data collection protocol</strong> (controlled document): inclusion/exclusion criteria,
+                        acquisition parameters, de-identification procedures, annotator qualification requirements,
+                        disagreement adjudication methodology, and achieved inter-annotator agreement metrics.
+                    </li>
+                    <li>
+                        <strong>Acceptance criteria</strong>: sample-size justification derived from the statistical
+                        claims asserted (e.g., positive-case counts required to bound sensitivity confidence
+                        intervals), demographic and multi-site coverage mapped to the intended population, and
+                        pre-defined rejection gates for corrupted or mislabeled records.
+                    </li>
+                    <li>
+                        <strong>Versioning and lineage</strong>: immutable dataset-version → model-version traceability.
+                        Data modifications constitute design changes subject to design change control and risk
+                        assessment.
+                    </li>
+                    <li>
+                        <strong>Reference-standard characterization</strong>: ground truth in medical AI is typically
+                        expert consensus with a non-zero error rate. The reference standard's limitations and the
+                        adjudication process are validation inputs requiring disclosure, not appendices.
+                    </li>
+                </ul>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">1.3 Verification and validation of probabilistic systems</h4>
+                <p>
+                    <strong>Verification</strong> (correct construction): training-pipeline code review, run
+                    reproducibility (fixed seeds, versioned environments, deterministic operators where feasible), and
+                    data-pipeline validation. <strong>Validation</strong> (correct model): statistical inference
+                    under strict protocol discipline —
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                    <li>
+                        <strong>Independent test sets</strong>, locked prior to training completion, with zero
+                        influence on model selection. Train-test leakage nullifies performance claims entirely — a
+                        frequent and critical failure mode.
+                    </li>
+                    <li>
+                        <strong>Pre-specified endpoints</strong>: primary performance metrics, acceptance criteria,
+                        non-inferiority margins, and subgroup analyses defined in the validation protocol before
+                        execution, never fitted post hoc.
+                    </li>
+                    <li>
+                        <strong>Representativeness</strong>: test distribution must match the intended-use population
+                        across scanners, demographics, prevalence, and severity spectra. Validation on
+                        academic-center data does not transfer to community-clinic deployment.
+                    </li>
+                    <li>
+                        <strong>Interval estimates</strong>: point estimates of sensitivity/specificity are not
+                        validation evidence; confidence intervals are, and their width quantifies epistemic
+                        uncertainty about the claim itself.
+                    </li>
+                </ul>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">1.4 Change control: the PCCP in practice</h4>
+                <p>
+                    The FDA's December 2024 final guidance, <em>Marketing Submission Recommendations for a
+                    Predetermined Change Control Plan for AI/ML-Enabled Device Software Functions</em>, structures
+                    authorized post-market modification around three elements:
+                </p>
+                <ol className="list-decimal pl-6 space-y-4 my-6">
+                    <li>
+                        <strong>Detailed Description of Modifications</strong> (SaMD pre-specifications): bounded,
+                        enumerated anticipated changes (e.g., retraining on additional scanner manufacturers'
+                        data; threshold adjustment within 0.65–0.80). Open-ended "performance improvement" is not a
+                        pre-specification.
+                    </li>
+                    <li>
+                        <strong>Modification Protocol</strong> (algorithm change protocol): the reproducible,
+                        auditable methodology for implementing each change — data governance, retraining procedures,
+                        performance evaluation, and verification activities, anchored in QMSR design controls.
+                    </li>
+                    <li>
+                        <strong>Impact Assessment</strong>: structured analysis of safety/effectiveness impact per
+                        modification, explicitly addressing performance drift, dataset shift, and subpopulation
+                        effects.
+                    </li>
+                </ol>
+                <p>
+                    The authorized PCCP becomes part of the marketing authorization; in-scope modifications ship
+                    without new submissions, while out-of-scope changes (intended-use modifications, novel clinical
+                    claims, new risk introduction) require a new 510(k) or PMA supplement. Predominant 2026
+                    deficiencies: protocols specifying <em>what</em> without <em>how</em>, absent modification
+                    boundaries, and no validation plan benchmarking updated versions against the cleared performance
+                    baseline. Unauthorized out-of-plan implementation constitutes adulteration exposure.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">1.5 IEC 62304 and the software-item problem</h4>
+                <p>
+                    IEC 62304's verification edifice presupposes behavior fully determined by reviewable, testable
+                    code. ML behavior is determined by code <em>plus</em> data <em>plus</em> training stochasticity;
+                    weights are artifacts no code review can evaluate. Pre-trained and foundation models present the
+                    sharper case: under 62304 they constitute SOUP (Software of Unknown Provenance), yet clause
+                    8.1.2's requirements for documented requirements, architecture, and verification are seldom
+                    satisfiable for such models. The defensible treatment is high-risk SOUP classification with
+                    compensatory validation — extensive independent testing on manufacturer-curated data, documented
+                    limitations, and architectural isolation containing failure-mode propagation.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">1.6 Supplier controls for the ML supply chain</h4>
+                <p>
+                    Annotation vendors, data brokers, and cloud training platforms are suppliers under QMSR §820.50 /
+                    ISO 13485 §7.4, requiring qualification, contractual data-quality and handling requirements, and
+                    ongoing monitoring. Annotator-workforce instability at a labeling vendor is a direct threat to
+                    design-input integrity.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">2. Safety Assurance: ISO 14971 Meets Machine Learning</h3>
+                <p>
+                    The ISO 14971 risk management process — hazard identification, risk estimation and evaluation,
+                    control implementation, effectiveness verification, production monitoring — requires expansion,
+                    not replacement, for ML-enabled devices.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">2.1 A third category of failure</h4>
+                <p>
+                    Extending the argument of my cybersecurity–safety linkage analysis — that safety risk
+                    (stochastic, frequentist) and cybersecurity risk (adversarial, intentional, non-probabilistic)
+                    demand distinct yet coordinated processes — ML introduces a <strong>third failure
+                    category</strong>, reducible to neither:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                    <li>
+                        Not <strong>random failure</strong>: the model does not degrade stochastically. Identical
+                        inputs deterministically reproduce identical erroneous outputs; classical failure-rate
+                        estimation from field returns is inapplicable.
+                    </li>
+                    <li>
+                        Not <strong>attack</strong>: misclassification of an underrepresented presentation involves no
+                        adversary. The model executes its design faithfully; the learned mapping itself is deficient
+                        for the case at hand.
+                    </li>
+                </ul>
+                <p>
+                    ML failure is <strong>statistical and systematic</strong> — nominal aggregate generalization
+                    coexisting with concentrated failures on identifiable subpopulations and edge cases. This
+                    necessitates a dedicated risk vocabulary: performance bounds, subgroup guarantees, operating
+                    envelopes, and monitoring thresholds, rather than hardware-reliability probabilities or
+                    exploitability judgments forced onto model behavior.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">2.2 Expanded hazard taxonomy</h4>
+                <div className="overflow-x-auto my-8">
+                    <table className="min-w-full border-collapse border border-slate-200 text-left text-sm">
+                        <thead className="bg-slate-50">
+                            <tr>
+                                <th className="px-4 py-2 border border-slate-200 font-bold">Hazard</th>
+                                <th className="px-4 py-2 border border-slate-200 font-bold">Mechanism</th>
+                                <th className="px-4 py-2 border border-slate-200 font-bold">Harm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Misclassification (false negatives / positives)</td>
+                                <td className="px-4 py-2 border border-slate-200">Statistical error on out-of-sample inputs</td>
+                                <td className="px-4 py-2 border border-slate-200">Missed diagnosis; unwarranted invasive intervention</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Automation bias</td>
+                                <td className="px-4 py-2 border border-slate-200">Operator deference suppressing independent verification</td>
+                                <td className="px-4 py-2 border border-slate-200">Model errors propagate into clinical decisions unchecked</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Distributional shift</td>
+                                <td className="px-4 py-2 border border-slate-200">Deployment distribution diverges from training distribution</td>
+                                <td className="px-4 py-2 border border-slate-200">Silent in-field performance degradation</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Opacity</td>
+                                <td className="px-4 py-2 border border-slate-200">Absence of causal decision account</td>
+                                <td className="px-4 py-2 border border-slate-200">Hazardous states unforeseeable and uninvestigable</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Reference-standard error</td>
+                                <td className="px-4 py-2 border border-slate-200">Imperfect ground truth; annotator discordance</td>
+                                <td className="px-4 py-2 border border-slate-200">Model optimizes toward an incorrect target</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Feedback loops</td>
+                                <td className="px-4 py-2 border border-slate-200">Model outputs contaminate subsequent training data</td>
+                                <td className="px-4 py-2 border border-slate-200">Bias amplification; progressive degradation</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Miscalibration</td>
+                                <td className="px-4 py-2 border border-slate-200">Overconfident erroneous outputs</td>
+                                <td className="px-4 py-2 border border-slate-200">No reliable abstention signal; errors present as certainties</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Adversarial input</td>
+                                <td className="px-4 py-2 border border-slate-200">Perturbation-crafted misclassification</td>
+                                <td className="px-4 py-2 border border-slate-200">Targeted errors at the safety–security boundary</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">2.3 Risk controls for ML hazards</h4>
+                <p>
+                    The ISO 14971 control hierarchy applies directly once hazards are correctly identified:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                    <li>
+                        <strong>Inherent safety by design</strong>: enforced operating envelopes — input-validity
+                        screening rejecting out-of-distribution data rather than inferring over it; confidence gating
+                        suppressing sub-threshold outputs; graceful degradation to defined safe states (e.g.,
+                        "indeterminate — refer to clinician") in place of confident error.
+                    </li>
+                    <li>
+                        <strong>Protective measures</strong>: deliberately architected human oversight.
+                        Human-in-the-loop (advisory AI, human decides) preserves accountability only where workflows
+                        genuinely permit dissent; human-on-the-loop (supervised autonomy with override) requires
+                        anomaly-salient interfaces. Nominal "clinician review" checkboxes are not controls.
+                    </li>
+                    <li>
+                        <strong>Information for safety</strong>: labeling specifying the indicated population, known
+                        limitations, subgroup-stratified performance, and advisory status of outputs — with residual
+                        statistical risk disclosed quantitatively, not minimized in marketing language.
+                    </li>
+                </ul>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">2.4 Usability: IEC 62366-1 and the joint cognitive system</h4>
+                <p>
+                    A dominant fraction of AI-device risk is use-related rather than algorithmic. Automation bias is a
+                    use error: clinician, device, and interface constitute a joint cognitive system, and summative
+                    usability validation must evaluate that system — neither the operator nor the model in isolation.
+                    Validation must interrogate trust calibration: does the interface convey uncertainty or only
+                    conclusions? Can outputs be interrogated and overridden without workflow friction? Does extended
+                    use induce complacency under representative time pressure? An interface eliciting over-trust makes
+                    the use error itself the hazard, unmitigated by any model-accuracy figure.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">2.5 The ground-truth problem</h4>
+                <p>
+                    Clinical evaluation rests on reference standards with intrinsic uncertainty — inter-reader
+                    discordance, unavailable pathology, consensus-panel biases. Validation against noisy labels
+                    measures accuracy-against-noise. Protocols should report reference-standard inter-reader
+                    agreement, employ adjudicated panels where feasible, and characterize reference-unreliable cases.
+                    A model "exceeding expert performance" on benchmarks derived from those experts' labels
+                    demonstrates consistency, not superiority — a distinction the clinical evaluation report must
+                    preserve.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">3. Technical Limitations Bounding Assurance</h3>
+                <p>
+                    Beyond process discipline, ML exhibits intrinsic limitations constraining achievable assurance. A
+                    credible safety case enumerates them.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">3.1 Generalization and distributional shift</h4>
+                <p>
+                    Validity holds only insofar as the deployment distribution matches the training distribution —
+                    an equality never exact in practice. Covariate shift (scanner manufacturers, acquisition
+                    protocols), concept drift (evolving practice patterns, prevalence changes), and site-specific
+                    workflow effects all displace the target. External validation on held-out sites, without
+                    tuning access, is the minimum credible generalization evidence.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">3.2 Subgroup performance and bias</h4>
+                <p>
+                    Underrepresented subpopulations — stratified by race, sex, age, geography, disease severity —
+                    systematically receive inferior model performance. FDA's 2023 draft guidance explicitly requires
+                    accounting for these strata in training and validation data. For diagnostic devices, performance
+                    disparity is a safety issue concentrated on identifiable patient cohorts, not a fairness
+                    footnote. Subgroup metrics must be pre-specified, measured, disclosed, and, where deficient,
+                    must constrain the indicated population.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">3.3 Adversarial robustness</h4>
+                <p>
+                    Imperceptible input perturbations can invert model outputs at high reported confidence — a gap
+                    no clean test-set accuracy metric closes. Adversarial evaluation and corrupted-input stress
+                    testing belong in verification, with results filed in the risk management file. This fragility is
+                    precisely the safety–security interface: identical mechanism, accidental or deliberate
+                    exploitation.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">3.4 Opacity and explanation limits</h4>
+                <p>
+                    Post-hoc attributions (saliency maps, feature attributions, surrogates) approximate rather than
+                    reveal model behavior, and can mislead — highlighting plausible regions while decisions key on
+                    artifacts. Explanations may aid debugging and operator trust but constitute no verification
+                    evidence; safety cases premised on "correct reasoning" inferred from attributions rest on sand.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">3.5 Calibration</h4>
+                <p>
+                    A model reporting 90% confidence should be correct at approximately 90% frequency; deep models
+                    are characteristically miscalibrated toward overconfidence. Calibration is measurable
+                    (reliability diagrams, expected calibration error) and improvable (temperature scaling, Bayesian
+                    approximations, ensembling), and should be an acceptance criterion — confidence gating as a risk
+                    control is vacuous if confidence values are uncalibrated.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">3.6 Generative AI: confabulation as hazard</h4>
+                <p>
+                    Large language and vision-language models generate fluent, confident, clinically false outputs —
+                    fabricated findings, invented citations, plausible-but-wrong summaries. In device contexts,
+                    confabulation is a hazard requiring explicit controls. Compounding factors: prompt sensitivity
+                    (minor input variations yielding unpredictable output shifts) and the unsolved evaluation problem
+                    for open-ended generation. Prudent containment is architectural: restrict generative components
+                    to bounded tasks (classification, extraction, source-grounded summarization) and validate the
+                    constrained behavior, never the model's general capabilities.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">3.7 On-device constraints</h4>
+                <p>
+                    Embedded deployment necessitates quantization, pruning, or distillation — each a model
+                    modification requiring re-validation of the deployed artifact. Lab-model performance does not
+                    transfer by assumption. Hardware-specific validation (target SoC, memory constraints, thermal
+                    envelope) is mandatory, and framework/runtime updates are software changes under change control.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">3.8 Post-market drift and continuous monitoring</h4>
+                <p>
+                    Practice evolution, sensor aging, and population shifts degrade models over time. FDA's Total
+                    Product Lifecycle (TPLC) framework positions market authorization as a midpoint: real-world
+                    performance monitoring functions as continuous validation. This demands pre-specified metrics,
+                    investigation thresholds, and defined responses — PCCP-governed retraining, version rollback,
+                    labeling updates, or field action. Monitoring data pipelines are device components requiring
+                    validation; post-market surveillance for AI devices is the validation protocol still running.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">3.9 Cybersecurity interplay</h4>
+                <p>
+                    AI devices inherit the full cybersecurity burden plus ML-specific attack surfaces: training-time
+                    data poisoning, model extraction and inversion (catastrophic for PHI-trained models), and prompt
+                    injection against LLM-based functions. FDA's September 2023 cybersecurity guidance applies in
+                    full — ML-pipeline threat modeling, SBOM coverage of frameworks and model artifacts, and ML
+                    supply-chain vulnerability management. Security and safety analyses remain coordinated but
+                    distinct per the linkage model: an adversarial input is simultaneously a cybersecurity event and
+                    a safety hazard, and must be dispositioned in both files without mathematical fusion.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">4. FDA AI Guidance: Key References</h3>
+                <p>
+                    FDA guidance is nonbinding but predictive of review behavior. Essential reading:
+                </p>
+                <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 my-6">
+                    <ul className="space-y-4">
+                        <li>
+                            <strong>AI/ML-Based SaMD Action Plan (January 2021)</strong> — foundational TPLC vision:
+                            Good Machine Learning Practice (GMLP), transparency, bias/robustness evaluation, and
+                            real-world performance monitoring.
+                        </li>
+                        <li>
+                            <strong>Marketing Submission Recommendations for a PCCP for AI/ML-Enabled Device Software
+                            Functions (final, December 2024)</strong> — the PCCP framework: pre-specified
+                            modifications, modification protocol, impact assessment. Prerequisite reading for any
+                            submission involving learning or updatable models.
+                        </li>
+                        <li>
+                            <strong>Draft guidance on AI-enabled devices (January 2025)</strong> — first guidance
+                            spanning the full lifecycle (design through postmarket monitoring), issued as authorized
+                            AI/ML devices exceeded 1,000.
+                        </li>
+                        <li>
+                            <strong>21 CFR 892.2055 (effective June 17, 2026)</strong> — Class II classification with
+                            special controls for radiological ML-based quantitative imaging software incorporating a
+                            PCCP: design V&amp;V, post-clearance-change risk management, PCCP-specific labeling
+                            including version history.
+                        </li>
+                        <li>
+                            <strong>QMSR, 21 CFR Part 820 (effective February 2026)</strong> — modernized quality
+                            system regulation (ISO 13485-aligned) housing PCCP modification protocols as design
+                            change control.
+                        </li>
+                    </ul>
+                    <p className="mt-4 text-sm">
+                        FDA maintains a living AI/ML-device index on fda.gov (search "Artificial Intelligence and
+                        Machine Learning in Software as a Medical Device"). For novel AI devices, a pre-submission
+                        (Q-Sub) meeting aligning the validation plan and PCCP scope before pivotal work begins is
+                        the highest-leverage schedule investment available.
+                    </p>
+                </div>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">5. The Companion View: From Opportunity to Assurance</h3>
+                <p>
+                    Each opportunity identified in the <em>Rising Nepal</em> piece maps to an assurance obligation
+                    defined above:
+                </p>
+                <div className="overflow-x-auto my-8">
+                    <table className="min-w-full border-collapse border border-slate-200 text-left text-sm">
+                        <thead className="bg-slate-50">
+                            <tr>
+                                <th className="px-4 py-2 border border-slate-200 font-bold">Opportunity (Rising Nepal)</th>
+                                <th className="px-4 py-2 border border-slate-200 font-bold">Assurance obligation (this article)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Rapid AI-generated design prototypes</td>
+                                <td className="px-4 py-2 border border-slate-200">Design-control traceability of AI-assisted decisions; outputs valid only insofar as underlying data and assumptions are (§1.1–1.2)</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">V&amp;V at scale</td>
+                                <td className="px-4 py-2 border border-slate-200">Statistical validation discipline — locked test sets, pre-specified endpoints, zero leakage — lest scale merely accelerate confident error (§1.3)</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Automated regulatory compliance</td>
+                                <td className="px-4 py-2 border border-slate-200">Automation cannot generate underlying evidence: PCCPs, hazard analyses, and usability validation must exist before they can be documented (§1.4, §2)</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Continuous AI post-market surveillance</td>
+                                <td className="px-4 py-2 border border-slate-200">Monitoring pipelines are validated device components; metrics, thresholds, and responses pre-specified (§3.8)</td>
+                            </tr>
+                            <tr>
+                                <td className="px-4 py-2 border border-slate-200">Anatomy-personalized devices</td>
+                                <td className="px-4 py-2 border border-slate-200">Patient-specific adaptation is a design change: PCCP-bounded, with subgroup validation spanning the personalization range (§1.4, §3.2)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    The combined position: AI can transform safe-device development and monitoring <em>if</em> the
+                    quality system, hazard analysis, and validation discipline evolve to govern AI-generated
+                    artifacts. Velocity without assurance is accelerated risk.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">6. What Good Looks Like</h3>
+                <ol className="list-decimal pl-6 space-y-3 my-6">
+                    <li><strong>Data as design artifact</strong> — specified, versioned, traceable, with acceptance criteria and dataset-to-model lineage in the DHF.</li>
+                    <li><strong>Extended traceability</strong> — clinical need → data → training → model → evidence → claim, fully documented.</li>
+                    <li><strong>Statistical validation discipline</strong> — locked independent test sets, pre-specified endpoints/subgroups, interval estimates, zero leakage.</li>
+                    <li><strong>Expanded hazard analysis</strong> — ISO 14971 identification covering model error, automation bias, shift, opacity, miscalibration.</li>
+                    <li><strong>Matched controls</strong> — operating envelopes, confidence gating, validated oversight architectures, quantitative residual-risk labeling.</li>
+                    <li><strong>Joint-system usability validation</strong> — operator-plus-AI evaluated for trust calibration per IEC 62366-1.</li>
+                    <li><strong>Pre-specified change</strong> — PCCP with modification boundaries, protocols, and impact assessment established pre-market.</li>
+                    <li><strong>Continuous monitoring</strong> — real-world performance metrics, thresholds, and defined responses; validated monitoring pipelines.</li>
+                    <li><strong>Measured calibration</strong> — calibration as acceptance criterion, making abstention a reliable output.</li>
+                    <li><strong>Coordinated security analysis</strong> — ML-pipeline threat modeling, SBOM coverage of models/frameworks, safety–security linkage without fusion.</li>
+                </ol>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">7. Conclusion</h3>
+                <p>
+                    The <em>Rising Nepal</em> vision — generative AI accelerating development of safe, personalized,
+                    continuously monitored devices — is realizable only with commensurate assurance discipline. Trust
+                    is not an algorithmic property but a quality-system output: data governed as design input, hazard
+                    analysis extended to model behavior, change pre-specified, uncertainty calibrated, performance
+                    monitored across the device lifetime. AI safety in medical devices is, fundamentally, a quality
+                    management problem — more demanding than its deterministic predecessor, bounded by genuine
+                    technical limits, and solvable under honest accounting of what the technology can and cannot
+                    assure.
+                </p>
+            </>
+        )
+    },
     'cyber-safety-dilemma': {
         title: 'Transposing Cybersecurity-to-Safety Risks in Medical Devices: The Dilemma of Mathematical Conversion vs. Judgmental Linkage',
         date: '24 Apr 2026',

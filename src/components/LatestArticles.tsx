@@ -50,6 +50,20 @@ export const LatestArticles: React.FC = () => {
                     <div className="space-y-8">
                         {[
                             {
+                                title: "AI Safety Challenges for Medical Devices",
+                                date: "15 Oct 2026",
+                                link: "/articles/ai-safety-challenges",
+                                excerpt: "Quality management strain, a third category of failure, and the technical limits of AI in safety-critical devices."
+                            },
+                            {
+                                title: "How to Code Sign, Step by Step",
+                                date: "16 Sep 2026",
+                                link: "/code-signing/",
+                                excerpt: "A practical, hands-on walkthrough of digital signing on Linux — hashing, key generation, signing, and verification.",
+                                technical: true,
+                                external: true
+                            },
+                            {
                                 title: "Evolving Risk Paradigms",
                                 date: "02 Nov 2025",
                                 link: "/articles/evolving-risk",
@@ -73,22 +87,33 @@ export const LatestArticles: React.FC = () => {
                                 link: "/articles/print/academic-tourism",
                                 excerpt: "A perspective on academic tourism in the context of global healthcare."
                             }
-                        ].map((article, index) => (
-                            <Link key={index} to={article.link} className="group cursor-pointer block border-b border-slate-100 pb-8 last:border-0">
-                                <div className="flex items-center gap-4 text-sm text-slate-500 mb-2">
-                                    <span className="flex items-center gap-1"><Calendar size={14} /> {article.date}</span>
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                                    {article.title}
-                                </h3>
-                                <p className="text-slate-600 text-sm mb-3">
-                                    {article.excerpt}
-                                </p>
-                                <span className="inline-flex items-center gap-2 text-blue-600 text-sm font-medium">
-                                    Read Article <ArrowRight size={14} />
-                                </span>
-                            </Link>
-                        ))}
+                        ].map((article, index) => {
+                            const cardClass = "group cursor-pointer block border-b border-slate-100 pb-8 last:border-0";
+                            const cardInner = (
+                                <>
+                                    <div className="flex items-center gap-4 text-sm text-slate-500 mb-2">
+                                        <span className="flex items-center gap-1"><Calendar size={14} /> {article.date}</span>
+                                        {(article as any).technical && (
+                                            <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full text-xs font-bold uppercase">Technical</span>
+                                        )}
+                                    </div>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                                        {article.title}
+                                    </h3>
+                                    <p className="text-slate-600 text-sm mb-3">
+                                        {article.excerpt}
+                                    </p>
+                                    <span className="inline-flex items-center gap-2 text-blue-600 text-sm font-medium">
+                                        Read Article <ArrowRight size={14} />
+                                    </span>
+                                </>
+                            );
+                            return (article as any).external ? (
+                                <a key={index} href={article.link} className={cardClass}>{cardInner}</a>
+                            ) : (
+                                <Link key={index} to={article.link} className={cardClass}>{cardInner}</Link>
+                            );
+                        })}
                     </div>
                 </div>
 

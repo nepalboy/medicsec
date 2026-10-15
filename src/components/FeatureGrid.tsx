@@ -1,8 +1,18 @@
 import React from 'react';
-import { Brain, FileText, PenTool, CheckCircle, LayoutTemplate, Newspaper, GraduationCap } from 'lucide-react';
+import { Brain, FileText, PenTool, CheckCircle, LayoutTemplate, Newspaper, GraduationCap, KeyRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const features = [
+interface Feature {
+    icon: React.ComponentType<{ className?: string }>;
+    title: string;
+    description: string;
+    color: string;
+    bg: string;
+    link: string;
+    external?: boolean;
+}
+
+const features: Feature[] = [
     {
         icon: Brain,
         title: 'Medical AI Security',
@@ -58,6 +68,15 @@ const features = [
         color: 'text-cyan-500',
         bg: 'bg-cyan-500/10',
         link: '/articles'
+    },
+    {
+        icon: KeyRound,
+        title: 'Code Signing',
+        description: 'How to digitally sign files step by step: hashing, RSA key pairs, signing, and signature verification.',
+        color: 'text-indigo-500',
+        bg: 'bg-indigo-500/10',
+        link: '/code-signing/',
+        external: true
     }
 ];
 
@@ -73,23 +92,31 @@ export const FeatureGrid: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {features.map((feature, index) => (
-                        <Link
-                            key={index}
-                            to={feature.link}
-                            className="block bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 group"
-                        >
-                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${feature.bg}`}>
-                                <feature.icon className={`h-8 w-8 ${feature.color}`} />
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                                {feature.title}
-                            </h3>
-                            <p className="text-slate-600 leading-relaxed">
-                                {feature.description}
-                            </p>
-                        </Link>
-                    ))}
+                    {features.map((feature, index) => {
+                        const cardClass = "block bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 group";
+                        const cardInner = (
+                            <>
+                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${feature.bg}`}>
+                                    <feature.icon className={`h-8 w-8 ${feature.color}`} />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                    {feature.title}
+                                </h3>
+                                <p className="text-slate-600 leading-relaxed">
+                                    {feature.description}
+                                </p>
+                            </>
+                        );
+                        return feature.external ? (
+                            <a key={index} href={feature.link} className={cardClass}>
+                                {cardInner}
+                            </a>
+                        ) : (
+                            <Link key={index} to={feature.link} className={cardClass}>
+                                {cardInner}
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
         </section>
