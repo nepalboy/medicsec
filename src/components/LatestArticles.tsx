@@ -50,6 +50,12 @@ export const LatestArticles: React.FC = () => {
                     <div className="space-y-8">
                         {[
                             {
+                                title: "eSTAR Cybersecurity Deliverables for 510(k) Submissions",
+                                date: "16 Oct 2026",
+                                link: "/articles/estar-cybersecurity-510k",
+                                excerpt: "Every cybersecurity deliverable FDA expects in an eSTAR 510(k) — from the February 2026 guidance, with Section 524B must-haves and a fill-in template for each document."
+                            },
+                            {
                                 title: "AI Safety Challenges for Medical Devices",
                                 date: "15 Oct 2026",
                                 link: "/articles/ai-safety-challenges",
