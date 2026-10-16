@@ -24,6 +24,13 @@ interface ArticleEntry {
 
 const articles: ArticleEntry[] = [
     {
+        id: 'estar-cybersecurity-510k',
+        title: 'eSTAR Cybersecurity Deliverables for 510(k) Submissions: The Complete List',
+        date: '16 Oct 2026',
+        excerpt: 'Every cybersecurity deliverable FDA expects in an eSTAR 510(k) — drawn from the February 2026 final guidance, with Section 524B statutory must-haves flagged and a fill-in template for each document.',
+        featured: true
+    },
+    {
         id: 'ai-safety-challenges',
         title: 'AI Safety Challenges for Medical Devices: Quality Management, Safety Assurance, and Technical Limitations',
         date: '15 Oct 2026',

@@ -640,6 +640,112 @@ const articleData: Record<string, ArticleContent> = {
                 </p>
             </>
         )
+    },
+    'estar-cybersecurity-510k': {
+        title: 'eSTAR Cybersecurity Deliverables for 510(k) Submissions: The Complete List',
+        date: '16 Oct 2026',
+        author: 'Ravi Dhungel',
+        content: (
+            <>
+                <p className="lead text-xl text-slate-600 mb-8">
+                    Since October 2023, FDA only accepts 510(k)s through eSTAR — and the eSTAR cybersecurity
+                    section is prescriptive. Here is every cybersecurity deliverable FDA expects, drawn directly
+                    from the current final guidance (February 2026), plus which ones carry statutory weight
+                    under Section 524B.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">1. Why eSTAR Changed the Submission Game</h3>
+                <p>
+                    Before eSTAR, cybersecurity documentation lived wherever the sponsor chose to put it —
+                    scattered across software descriptions, risk files, and labeling. eSTAR replaced that freedom
+                    with a dedicated Cybersecurity section containing named attachment slots. The consequence is
+                    procedural: FDA now runs a <em>technical screening</em> that checks for the presence and
+                    formatting of these artifacts before substantive review begins. A missing or malformed
+                    attachment is a refuse-to-accept risk, not a deficiency you negotiate later.
+                </p>
+                <p>
+                    The attachment names in eSTAR mirror the documentation recommendations in FDA's final guidance
+                    <em> "Cybersecurity in Medical Devices: Quality Management System Considerations and Content of
+                    Premarket Submissions"</em> (February 2026 — the current version, which superseded the June 2025
+                    edition as a QMSR-alignment update). Appendix 4, Table 1 of that guidance is the authoritative
+                    list. What follows is that list, organized the way a submission team actually builds it.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">2. The Statutory Floor: Section 524B</h3>
+                <p>
+                    Not all fourteen items carry equal weight. Section 524B of the FD&amp;C Act (added December 2022,
+                    effective March 2023) makes a subset <em>mandatory</em> for devices meeting the "cyber device"
+                    definition — and that explicitly includes 510(k)s (original, special, and abbreviated). The
+                    statutory must-haves:
+                </p>
+                <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>SBOM</strong> — machine-readable Software Bill of Materials covering commercial, open-source, and off-the-shelf components;</li>
+                    <li><strong>Vulnerability monitoring and remediation plans</strong> — processes to monitor, identify, and address postmarket vulnerabilities in a reasonable time, including coordinated vulnerability disclosure;</li>
+                    <li><strong>Secure development processes</strong> — documented processes providing reasonable assurance the device and related systems are cybersecure;</li>
+                    <li><strong>Updates and patches</strong> — making postmarket updates available on a justified regular cycle, and as soon as possible out-of-cycle for critical vulnerabilities.</li>
+                </ul>
+                <p>
+                    Everything else on the list is guidance-recommended rather than statutory — but in practice,
+                    reviewers treat the full set as expected for any device with cybersecurity risk.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">3. The Fourteen Deliverables</h3>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Risk management core</h4>
+                <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>Cybersecurity Risk Management Report</strong> — the overarching summary: traceability across all security activities, residual-risk justifications, deviations from the plan. <Link to="/templates/risk-management-plan" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                    <li><strong>Threat Model</strong> (may include architecture views) — structured analysis of how the device system could be compromised: supply chain, manufacturing, deployment, interoperation, maintenance, and decommissioning. State your assumptions and methodology rationale. <Link to="/templates/threat-model" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                    <li><strong>Cybersecurity Risk Assessment</strong> — threat/vulnerability pairs scored pre- and post-mitigation, with acceptance criteria and the method for transferring security risks into the ISO 14971 safety process. <Link to="/templates/risk-assessment" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                </ul>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Software transparency</h4>
+                <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>SBOM</strong> — SPDX or CycloneDX JSON with NTIA baseline attributes; statutory for cyber devices. <Link to="/templates/sbom-guide" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                    <li><strong>Vulnerability Assessment &amp; Software Support</strong> — per-component support status, end-of-support dates, and known vulnerabilities including CISA KEV entries, each with discovery method, impact assessment, and controls. <Link to="/templates/vulnerability-assessment" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                    <li><strong>Unresolved Anomalies Assessment</strong> — known software defects at submission, each evaluated for security impact (CWE mapping), with criteria and rationale for addressing vs. deferring. <Link to="/templates/unresolved-anomalies" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                </ul>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Engineering evidence</h4>
+                <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>Traceability</strong> — the chain linking threats → requirements → controls → tests → results. Reviewers follow this chain; breaks in it are findings. <Link to="/templates/traceability-matrix" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                    <li><strong>Measures &amp; Metrics</strong> — security metrics tracked through development (remediation times, scan coverage, SBOM completeness). <Link to="/templates/security-metrics" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                    <li><strong>Architecture Views</strong> — at minimum: global system view, multi-patient harm view, updateability/patchability view, and security use case views for safety-relevant functionality. Diagrams plus explanatory text. <Link to="/templates/architecture-views" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                    <li><strong>Requirements</strong> — security design inputs, requirements, and acceptance criteria across the control categories (authentication, authorization, cryptography, integrity, confidentiality, logging, resiliency, updatability). <Link to="/templates/security-requirements" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                    <li><strong>Testing</strong> — requirements testing, threat-mitigation testing, vulnerability testing (fuzz, attack surface, SCA, SAST/DAST, credential scans), and penetration testing with tester independence documented. <Link to="/templates/testing-report" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                </ul>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Transparency and lifecycle</h4>
+                <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>Labeling</strong> — user-facing cybersecurity information: network interfaces, secure configuration, update procedures, end-of-support. <Link to="/templates/labeling" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                    <li><strong>Cybersecurity Management Plans</strong> — postmarket vulnerability monitoring, coordinated disclosure, patch timelines, and customer communication. Statutory for cyber devices. <Link to="/templates/management-plan" className="text-blue-600 hover:text-blue-700 underline">Template</Link></li>
+                </ul>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">4. No 510(k) Carve-Out — It Scales With Risk</h3>
+                <p>
+                    A common misconception: that the full list applies to PMAs while 510(k)s get a lighter version.
+                    The guidance is explicit — each documentation element "is recommended for all premarket
+                    submissions for devices with potential cybersecurity risks." What scales is not the submission
+                    type but the device's cybersecurity risk: a simple non-connected device needs only limited
+                    documentation; a networked, wireless device needs the full set. The "Recommended" vs. "could be
+                    helpful" distinction in FDA's table applies only to IDE submissions, not to 510(k) vs. PMA.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">5. From List to Submission</h3>
+                <p>
+                    Knowing the fourteen items is the easy part; producing them with the traceability reviewers
+                    expect is the work. To make that concrete, each deliverable above links to a fill-in template
+                    in our <Link to="/templates" className="text-blue-600 hover:text-blue-700 underline">Templates section</Link> —
+                    structured around the FDA guidance sections, with per-section instructions on what reviewers
+                    look for. Start with the threat model and risk assessment: everything else traces back to them.
+                </p>
+                <p className="bg-slate-50 border-l-4 border-blue-500 pl-4 py-3 my-4 italic text-slate-700">
+                    Reference: FDA final guidance "Cybersecurity in Medical Devices: Quality Management System
+                    Considerations and Content of Premarket Submissions" (February 2026), Appendix 4, Table 1.
+                    Verify section references against the current guidance before submission — eSTAR attachment
+                    names track the guidance.
+                </p>
+            </>
+        )
     }
 };
 

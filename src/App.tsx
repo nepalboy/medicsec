@@ -19,6 +19,19 @@ import { ArticleDetail } from './components/pages/ArticleDetail';
 import { PrintArticleDetail } from './components/pages/PrintArticleDetail';
 import { WorksheetA } from './components/pages/templates/WorksheetA';
 import { WorksheetB } from './components/pages/templates/WorksheetB';
+import { RiskManagementPlanTemplate } from './components/pages/templates/RiskManagementPlanTemplate';
+import { ThreatModelTemplate } from './components/pages/templates/ThreatModelTemplate';
+import { RiskAssessmentTemplate } from './components/pages/templates/RiskAssessmentTemplate';
+import { SbomGuideTemplate } from './components/pages/templates/SbomGuideTemplate';
+import { VulnerabilityAssessmentTemplate } from './components/pages/templates/VulnerabilityAssessmentTemplate';
+import { UnresolvedAnomaliesTemplate } from './components/pages/templates/UnresolvedAnomaliesTemplate';
+import { TraceabilityMatrixTemplate } from './components/pages/templates/TraceabilityMatrixTemplate';
+import { SecurityMetricsTemplate } from './components/pages/templates/SecurityMetricsTemplate';
+import { ArchitectureViewsTemplate } from './components/pages/templates/ArchitectureViewsTemplate';
+import { SecurityRequirementsTemplate } from './components/pages/templates/SecurityRequirementsTemplate';
+import { TestingReportTemplate } from './components/pages/templates/TestingReportTemplate';
+import { LabelingTemplate } from './components/pages/templates/LabelingTemplate';
+import { ManagementPlanTemplate } from './components/pages/templates/ManagementPlanTemplate';
 
 function LandingPage() {
   return (
@@ -47,6 +60,19 @@ function App() {
           <Route path="/templates" element={<Templates />} />
           <Route path="/templates/worksheet-a" element={<WorksheetA />} />
           <Route path="/templates/worksheet-b" element={<WorksheetB />} />
+          <Route path="/templates/risk-management-plan" element={<RiskManagementPlanTemplate />} />
+          <Route path="/templates/threat-model" element={<ThreatModelTemplate />} />
+          <Route path="/templates/risk-assessment" element={<RiskAssessmentTemplate />} />
+          <Route path="/templates/sbom-guide" element={<SbomGuideTemplate />} />
+          <Route path="/templates/vulnerability-assessment" element={<VulnerabilityAssessmentTemplate />} />
+          <Route path="/templates/unresolved-anomalies" element={<UnresolvedAnomaliesTemplate />} />
+          <Route path="/templates/traceability-matrix" element={<TraceabilityMatrixTemplate />} />
+          <Route path="/templates/security-metrics" element={<SecurityMetricsTemplate />} />
+          <Route path="/templates/architecture-views" element={<ArchitectureViewsTemplate />} />
+          <Route path="/templates/security-requirements" element={<SecurityRequirementsTemplate />} />
+          <Route path="/templates/testing-report" element={<TestingReportTemplate />} />
+          <Route path="/templates/labeling" element={<LabelingTemplate />} />
+          <Route path="/templates/management-plan" element={<ManagementPlanTemplate />} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/articles/print/:id" element={<PrintArticleDetail />} />
           <Route path="/articles/:id" element={<ArticleDetail />} />
