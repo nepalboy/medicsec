@@ -641,6 +641,186 @@ const articleData: Record<string, ArticleContent> = {
             </>
         )
     },
+    'cpss-2026': {
+        title: 'In Pursuit of the Most Beautiful Conference Venue: Cyber Patient Safety Symposium (CPSS) 2026',
+        date: '29 Oct 2026',
+        author: 'Ravi Dhungel',
+        image: '/images/articles/pacific-seagulls.jpg',
+        content: (
+            <>
+                <p className="lead text-xl text-slate-600 mb-8">
+                    October 27–28, 2026 — Seaside Forum and Ted Scripps Room, La Jolla, San Diego.
+                    Some conferences you attend for the talks. Some you attend for the people. And once in a
+                    while, you walk into a venue so beautiful that the setting itself becomes part of the
+                    argument: this work — protecting patients from the machines meant to heal them — deserves
+                    a place this good.
+                </p>
+                <p>
+                    CPSS 2026, the Cyber Patient Safety Symposium, ran for two days on the doorstep of the
+                    Pacific. The Seaside Forum and the Ted Scripps Room sit within earshot of the ocean in La
+                    Jolla, and the beauty of San Diego was not a backdrop to the conference; it was the
+                    conference's opening statement. Between sessions, the Pacific did what it always does —
+                    it put the scale of the problems discussed inside back into perspective.
+                </p>
+                <figure className="my-8">
+                    <img src="/images/articles/pacific-seagulls.jpg" alt="Two gulls on the roof, watching the surf" className="w-full h-auto rounded-2xl shadow-md" />
+                    <figcaption className="text-sm text-slate-500 italic mt-2 text-center">Two gulls on the roof, watching the surf — the venue on the doorstep of the Pacific listening quietly to human safety.</figcaption>
+                </figure>
+                <figure className="my-8">
+                    <img src="/images/articles/pacific-surfers-shore.jpg" alt="Surfers in the water below the venue, La Jolla" className="w-full h-auto rounded-2xl shadow-md" />
+                    <figcaption className="text-sm text-slate-500 italic mt-2 text-center">Surfers in the water below the venue, La Jolla.</figcaption>
+                </figure>
+                <figure className="my-8">
+                    <img src="/images/articles/pacific-surfers-board.jpg" alt="Surfers coming in from the Pacific, just steps from the conference" className="w-full h-auto rounded-2xl shadow-md" />
+                    <figcaption className="text-sm text-slate-500 italic mt-2 text-center">Surfers coming in from the Pacific, just steps from the conference.</figcaption>
+                </figure>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">The setting, and the food</h3>
+                <p>
+                    San Diego in late October is hard to beat: warm sun, ocean air, and a campus that feels
+                    like it was designed for wandering conversations between sessions. And the food was awesome
+                    too — the kind of conference catering that people actually talk about afterward, over
+                    coffee, while continuing the debate from the last session.
+                </p>
+                <figure className="my-8">
+                    <img src="/images/articles/coffee-pier.jpg" alt="Coffee with the Scripps Pier behind it" className="w-full h-auto rounded-2xl shadow-md" />
+                    <figcaption className="text-sm text-slate-500 italic mt-2 text-center">Coffee with the Scripps Pier behind it — conversations continuing between sessions.</figcaption>
+                </figure>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">The major highlights</h3>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Medical simulation: the cornerstone of learning medicine</h4>
+                <p>
+                    The opening program put clinical simulation front and center, and rightly so. Simulation
+                    is the cornerstone of learning medicine — the place where clinicians can fail safely,
+                    repeat the hard case, and build judgment before a real patient is ever in the room. In a
+                    field where the stakes are absolute, the simulator is where competence is earned.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">When AI misreads the medical image during simulation</h4>
+                <p>
+                    One of the most unsettling threads of the conference was also the simplest to describe:
+                    how AI misdiagnosed after AI injects medical image — and in doing so, misled the integrity
+                    of the medical data itself. A manipulated input, a confident wrong answer, and suddenly
+                    the data downstream across the clinical events can no longer be trusted. It was a live
+                    demonstration of why data integrity is not an abstract property in healthcare. When the
+                    integrity of a medical device is compromised, the patient pays.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Where academia meets engineering</h4>
+                <p>
+                    CPSS is, at its heart, about an intersection: academic problems and engineering problems,
+                    brought together to understand the science of patient safety, cybersecurity, computer
+                    science and safety engineering in medical devices and healthcare settings. Neither side
+                    can solve this alone. The academics bring the models with a plethora of data in volume,
+                    veracity and velocity; the engineers bring the constraints of the real world. Science is
+                    the quest of answer.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">The graduate students and the sheer volume of data</h4>
+                <p>
+                    The poster sessions told their own story. A lot of graduate students, postering the sheer
+                    volume of data required to capture healthcare entities and objects — the painstaking work
+                    of turning the messy reality of a hospital into data structures a system can reason
+                    about. It was a reminder of how much foundational work still sits underneath every
+                    "AI in healthcare" headline.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Industry and the security debt</h4>
+                <p>
+                    Industry, meanwhile, is trying to solve the problems of security debt in medical devices
+                    — years of accumulated shortcuts, legacy code, and deferred fixes — while staying
+                    compliant with the regulations. The debt is real, it is large, and it cannot be paid down
+                    with a single patch cycle. It is a structural problem, and the conference treated it as one.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">A 360-degree view: software quality debt, in multiple dimensions</h4>
+                <p>
+                    Step back far enough, and the picture becomes a 360-degree view in multiple dimensions:
+                    the software quality debt of academia and of the medical device industry, seen together.
+                    Universities produce code and prototypes; industry produces products; both carry debt,
+                    and the debt compounds over time.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Moving to the extreme left</h4>
+                <p>
+                    The hardest challenge the conference kept circling back to was this: how do we fix the
+                    problem in the field, and at the same time teach the secure software development process
+                    in freshman and sophomore classes? Moving to the extreme left — shifting security all the
+                    way to the beginning of education — means navigating computer science education itself,
+                    and its long-standing lack of teaching secure software development. We need quality codes
+                    that address safety and cybersecurity, and we need them taught before habits harden.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Why do other engineering disciplines have fewer problems?</h4>
+                <p>
+                    That question led to a deeper one: why do civil engineering, mechanical engineering, and
+                    electrical engineering seem to have fewer of these problems than computer science? Is it
+                    an inherent weakness of the domain — the discrete, non-continuous mathematics of
+                    computing, as opposed to the continuous mathematics the other disciplines rely on? Or is
+                    it merely a matter of practice — of being a more ethical programmer? Or is it that the
+                    older engineering disciplines simply rely more on continuous mathematics, which forces
+                    a different kind of rigor? The conference did not settle it. It should not have tried to.
+                    It is a question worth sitting with. Definitely traditional engineering is better in
+                    addressing safety and hazards.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">Prescription versus democratization</h4>
+                <p>
+                    A related challenge: the challenge in innovation when you are being too prescriptive in
+                    programming — versus the democratization of programming languages and the world of
+                    script kiddos. Lock everything down and you strangle innovation; open everything up and
+                    you hand powerful tools but very heterogeneous systems in codes and complexity. Finding
+                    the line between prescription and democratization is one of the field's live tensions in
+                    writing secure software applications.
+                </p>
+
+                <h4 className="text-xl font-bold mt-6 mb-3">The older question: risk scores</h4>
+                <p>
+                    And then the older question, still unanswered: risk scores. How are we going to assess
+                    the cyber and safety risks? Is a CVSS score a risk score or a vulnerability score? How
+                    are we going to transpose a non-probabilistic cybersecurity risk score into a
+                    probabilistic risk score — or is it simply the linkage between the two we are interested
+                    in a hazard line item. And how are other industries, such as aviation and transportation,
+                    doing better in safety engineering compared to the medical device industry? The question
+                    remains pretty open, and it needs more rigor from both academic and industry practitioners.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">What we were missing: the holistic view</h3>
+                <p>
+                    If there was one gap that ran through the whole two days, it was this: the holistic view.
+                    How do we view the problem from end to end — navigating the business needs, the software
+                    development life cycle, verification and validation, quality management, regulations, and
+                    standards? The list is long, and it needs to be in the same room: PCI, HIPAA, FDA, DoD
+                    STIG/ATO, SWE96, TIR 57/97, IEC 60601-1, IEC 62304, IEC 81001-5-1, ISO 14971. We need
+                    participants from these standards bodies beside the FDA. Until the people who write the
+                    standards sit with the people who build the devices and the people who defend them, the
+                    view will stay fragmented.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">A suggestion to the organizers: three tracks</h3>
+                <p>
+                    CPSS is doing something rare and valuable. Here is one suggestion for making it sharper:
+                    give the conference three tracks — Red, Green, and Blue. And we need three days in
+                    beautiful San Diego.
+                </p>
+                <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>Red</strong> — all academic presentations, labeled as such.</li>
+                    <li><strong>Green</strong> — the hybrid: work that sits between academia and industry.</li>
+                    <li><strong>Blue</strong> — industry presentations.</li>
+                </ul>
+                <p>
+                    Labeling the tracks this way would let every attendee know, at a glance, which world a
+                    talk comes from — and, more importantly, it would make the conversations between those
+                    worlds deliberate instead of accidental. The red-green-blue map is, after all, the point
+                    of the whole symposium: academia, industry, and the space where they meet.
+                </p>
+                <p className="italic text-slate-600 mt-8">
+                    This article is written and verified by agent Everest muse and Ravi Dhungel
+                </p>
+            </>
+        )
+    },
     'estar-cybersecurity-510k': {
         title: 'eSTAR Cybersecurity Deliverables for 510(k) Submissions: The Complete List',
         date: '16 Oct 2026',

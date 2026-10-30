@@ -50,6 +50,12 @@ export const LatestArticles: React.FC = () => {
                     <div className="space-y-8">
                         {[
                             {
+                                title: "In Pursuit of the Most Beautiful Conference Venue: Cyber Patient Safety Symposium (CPSS) 2026",
+                                date: "29 Oct 2026",
+                                link: "/articles/cpss-2026",
+                                excerpt: "Two days in La Jolla: AI misreading a medical image during simulation, security and quality debt, the open CVSS risk-score question, the missing holistic view — and a proposal for three tracks: Red, Green, and Blue."
+                            },
+                            {
                                 title: "eSTAR Cybersecurity Deliverables for 510(k) Submissions",
                                 date: "16 Oct 2026",
                                 link: "/articles/estar-cybersecurity-510k",

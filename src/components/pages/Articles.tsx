@@ -24,6 +24,13 @@ interface ArticleEntry {
 
 const articles: ArticleEntry[] = [
     {
+        id: 'cpss-2026',
+        title: 'In Pursuit of the Most Beautiful Conference Venue: Cyber Patient Safety Symposium (CPSS) 2026',
+        date: '29 Oct 2026',
+        excerpt: 'Two days at the Seaside Forum and Ted Scripps Room in La Jolla: AI misreading a medical image during simulation, medical simulation as the cornerstone of learning medicine, security and quality debt, the open CVSS risk-score question, the missing holistic view across standards — and a proposal for three tracks: Red, Green, and Blue.',
+        featured: true
+    },
+    {
         id: 'estar-cybersecurity-510k',
         title: 'eSTAR Cybersecurity Deliverables for 510(k) Submissions: The Complete List',
         date: '16 Oct 2026',
